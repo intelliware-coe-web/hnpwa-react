@@ -2,6 +2,7 @@
 
 Full documentation at https://reactjs.org/docs/react-component.html
 
+![Lifecycle diagram](https://raw.githubusercontent.com/intelliware-coe-web/hnpwa-react/master/doc/2%20-%20component%20lifecycle.png)
 ### Mounting 
 
 These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
