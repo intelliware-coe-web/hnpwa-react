@@ -22,19 +22,19 @@ class App extends Component {
 }
 
 class NewsListTable extends Component {
-  contructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       title: "asdfasdf",
       date: "July 19 2018",
       user: "baran"
-  };
-}
+    };
+  }
   render() {
     return (
       <div>
         <h1>newsList</h1>
-        <NewsRows title={this.state.title} date={this.state.date} user={this.state.user}/>
+        <NewsRow title={this.state.title} date={this.state.date} user={this.state.user}/>
       </div>
     );
   }
@@ -44,9 +44,9 @@ function NewsRow(props) {
   return (
     <div>
       newsrow:
-      {this.props.title}
-      {this.props.date}
-      {this.props.user}
+      {props.title}
+      {props.date}
+      {props.user}
     </div>
   );
 }
