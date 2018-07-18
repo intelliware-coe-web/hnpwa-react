@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
 
 class UserProfile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: 'Jane Doe',
-      createdDate: '2015-06-31',
-      description: 'Amazing user',
-      numOfStories: 5,
-    };
-  }
-
   render() {
-    let stories;
-    if (this.state.numOfStories > 0) {
-      stories = 'Number of stories submitted: ' + this.state.numOfStories;
+    let storiesMessage;
+    if (this.props.numOfStories > 0) {
+      storiesMessage = 'Number of stories submitted: ' + this.props.numOfStories;
     } else {
-      stories = 'No stories submitted yet'
+      storiesMessage = 'No stories submitted yet'
     }
 
     return (
       <div className="UserProfile">
-        <p>Username: {this.state.username}</p>
-        <p>Created Date: {this.state.createdDate}</p>
-        <p>Description: {this.state.description}</p>
-        <p>{stories}</p>
+        <p>Username: {this.props.username}</p>
+        <p>Created Date: {this.props.createdDate}</p>
+        <p>Description: {this.props.description}</p>
+        <p>{storiesMessage}</p>
       </div>
     );
   }
