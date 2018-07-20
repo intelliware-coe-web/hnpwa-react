@@ -17,7 +17,8 @@ class Search extends Component {
     this.setState({searchTerms: event.target.value});
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     this.setState({labelText: this.state.searchTerms});
   }
 
@@ -26,7 +27,7 @@ class Search extends Component {
       <div className="Search">
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.searchTerms} onChange={this.handleChange} />
-          <button type="submit">Search</button>
+          <button type="submit" disabled={!this.state.searchTerms}>Search</button>
           <label>{this.state.labelText}</label>
         </form>
       </div>
