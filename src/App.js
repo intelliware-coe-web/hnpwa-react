@@ -23,30 +23,49 @@ class App extends Component {
 
 class NewsListTable extends Component {
   constructor(props) {
+    var mockNews = [
+      {
+        url: 'www.example.com',
+        user: 'tdurden',
+        title: 'Tesla Asks Suppliers for Cash Back to Help Turn a Profit',
+        timeAgo: '1 day',
+        points: '42',
+        numberOfComments: '22'
+      },
+      {
+        url: 'www.example.com',
+        user: 'jhabdas',
+        title: 'BPG Image format ',
+        timeAgo: '9 hours',
+        points: '185',
+        numberOfComments: '60'
+      }
+    ];
     super(props);
     this.state = {
-      title: "asdfasdf",
-      date: "July 19 2018",
-      user: "baran"
+      news: mockNews
     };
   }
+
   render() {
     return (
       <div>
-        <h1>newsList</h1>
-        <NewsRow title={this.state.title} date={this.state.date} user={this.state.user}/>
+        <h1>News List</h1>
+        {this.state.news.map((item, index) => (
+          <NewsListItem item={item} />
+        ))}
       </div>
     );
   }
 }
 
-function NewsRow(props) {
+function NewsListItem(props) {
   return (
-    <div>
-      newsrow:
-      {props.title}
-      {props.date}
-      {props.user}
+    <div className="news-list-item">
+      <a className="title" href={props.item.url} target="__blank">{props.item.title}</a>
+      <div className="info">
+        {props.item.points} points by {props.item.user} | {props.item.timeAgo} ago | {props.item.numberOfComments} comments
+      </div>
     </div>
   );
 }
