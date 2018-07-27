@@ -9,11 +9,11 @@ const mapStateToProps = state => {
 
 const ConnectedNewsListTable = ({ news }) => (
   <div>
+    <SearchParameter />
     <h1>News List</h1>
       {news.map((item, index) => (
         <NewsListItem item={item} />
       ))}
-    <SearchParameter />
   </div>
 );
 
