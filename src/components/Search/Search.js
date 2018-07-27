@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { submitSearch } from '../../actions/index';
 
-class Search extends Component {
+const mapDispatchToProps = dispatch => {
+  return { 
+    submitSearch: searchTerms => dispatch(submitSearch(searchTerms))
+  };
+};
+
+class ConnectedSearch extends Component {
 
   constructor(props) {
     super(props);
@@ -19,6 +27,8 @@ class Search extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const { searchTerms } = this.state.searchTerms;
+    this.props.submitSearch({ searchTerms })
     this.setState({labelText: this.state.searchTerms});
   }
 
@@ -34,5 +44,7 @@ class Search extends Component {
     );
   }
 }
+
+const Search = connect(null, mapDispatchToProps)(ConnectedSearch);
 
 export default Search;
