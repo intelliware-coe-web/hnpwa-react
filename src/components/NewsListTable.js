@@ -11,6 +11,7 @@ const ConnectedNewsListTable = ({ news }) => (
   <div>
     <SearchParameter />
     <h1>News List</h1>
+      {news.length ? "" : "no news found"}
       {news.map((item, index) => (
         <NewsListItem item={item} />
       ))}
