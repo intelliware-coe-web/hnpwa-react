@@ -6,7 +6,7 @@ const mapStateToProps = state => {
 };
 const ConnectedList = ({ searchParameters }) => (
   <div>
-    {searchParameters}
+    {searchParameters ? 'Search results for: \"' + searchParameters + '\"' : ''}
   </div>
 );
 const SearchParameter = connect(mapStateToProps)(ConnectedList);
