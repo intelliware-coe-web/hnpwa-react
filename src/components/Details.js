@@ -13,10 +13,10 @@ class Details extends Component {
   render() {
     return (
       <div className="Details">
-        <div className="Details-field Details-title">{ this.props.title }</div>
-        <div className="Details-field Details-author">{ `author: ${this.props.author}` }</div>
-        <div className="Details-field Details-date">{ `date created: ${this.props.createdDate}` }</div>
-        <div className="Details-field Details-response">{ this.generateResponseCountMessage(this.props.responses) }</div>
+        <div className="Details-field Details-title">{ this.props.news.title }</div>
+        <div className="Details-field Details-author">{ `author: ${this.props.news.author}` }</div>
+        <div className="Details-field Details-date">{ `date created: ${this.props.news.createdDate}` }</div>
+        <div className="Details-field Details-response">{ this.generateResponseCountMessage(this.props.news.responses) }</div>
       </div>
     );
   }
