@@ -15,8 +15,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Details title="Some News 1" author="Xufeng" createdDate="2018-06-01"></Details>
-        <Details title="Some News 2" author="Peter" createdDate="2018-07-01" responses="Great article!, Very interesting!"></Details>
-        <Details title="Some News 3" author="Cesar" createdDate="2018-07-20" responses="Great article!"></Details>
+        <Details title="Some News 2" author="Peter" createdDate="2018-07-01" responses={["Great article!", "Very interesting!"]}></Details>
+        <Details title="Some News 3" author="Cesar" createdDate="2018-07-20" responses={["Great article!"]}></Details>
       </div>
     );
   }
