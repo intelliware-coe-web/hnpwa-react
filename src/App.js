@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import UserProfile from './UserProfile';
+import UserProfileContainer from './UserProfileContainer';
 
 class App extends Component {
   render() {
@@ -14,11 +14,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <UserProfile
-          username='Jane Doe'
-          createdDate='2015-06-31'
-          description='Amazing user'
-          numOfStories='5'/>
+        <div>
+          <UserProfileContainer/>
+        </div>
       </div>
     );
   }
