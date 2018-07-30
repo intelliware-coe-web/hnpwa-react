@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import UserProfile from './UserProfile'
+import { makeCat } from './actions'
 
 const getUserProfile = (userProfile) => {
     return userProfile;
@@ -11,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        //no actions right now
+        makeCat: username => dispatch(makeCat(username))
     }
 }
 
