@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import avatar from './avatars/cat-avatars.jpg';
 
 class UserProfile extends Component {
   render() {
@@ -9,11 +8,20 @@ class UserProfile extends Component {
     } else {
       storiesMessage = 'No stories submitted yet'
     }
+
+    let avatar = this.props.userProfile.avatar;
+    let avatarDivContent;
+    if (avatar) {
+      var imgSrc = require('./avatars/cat-avatars-' + avatar +  '.jpg');
+      avatarDivContent = <img alt="Avatar" src={imgSrc} width="100px"></img>
+    } else {
+      avatarDivContent = <button onClick={this.props.makeCat}>Make Cat</button>
+    }
+
     return (
       <div className="UserProfile">
         <div className="avatar">
-          <img src={avatar} width="100px"/>
-          <button onClick={this.props.makeCat}>Make Cat</button>
+          {avatarDivContent}
         </div>
         <div>
           <p>Username: {this.props.userProfile.username}</p>

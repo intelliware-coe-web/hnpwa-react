@@ -1,7 +1,7 @@
 const initialState = {
     //Mock initial state
     userProfile: {
-        avatar:1,
+        avatar:undefined,
         username:'Jane Doe II',
         createdDate:'2015-06-31',
         description:'Amazing user',
@@ -16,10 +16,20 @@ const UserProfileReducer = (state = [], action)  => {
     }
 
     if (action.type === 'MAKE_CAT') {
-        state.userProfile.avatar++;
+        let avatarUpdated = Math.floor(Math.random()*6) + 1;
         console.log("make cat clicked", state.userProfile, action);
+
+        return {
+            userProfile: {
+                avatar:avatarUpdated,
+                username:state.userProfile.username,
+                createdDate:state.userProfile.createdDate,
+                description:state.userProfile.description,
+                numOfStories:state.userProfile.numOfStories
+            }
+        }
     }
 
-    return state    
+    return state
 }
 export default UserProfileReducer
