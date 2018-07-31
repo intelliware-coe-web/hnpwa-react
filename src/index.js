@@ -12,7 +12,10 @@ const store = createStore(UserProfileReducer);
 
 ReactDOM.render(
     <Provider store = {store}>
-        <App />
+        <div>
+            <App />
+            <Search />
+        </div>
     </Provider>,
     document.getElementById('root')
 );
