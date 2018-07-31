@@ -11,7 +11,7 @@ const getCurrentNews = (newsList, selectedNewsIndex) => {
 };
 
 const mapStateToProps = state => ({
-  news: getCurrentNews(state.newsList, state.selectedNewsIndex),
+  news: getCurrentNews(state.news.newsList, state.news.selectedNewsIndex),
 });
 
 export default connect(
