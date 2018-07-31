@@ -7,16 +7,16 @@ import App from './components/App/App';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import store from './store/index';
+import { createStore } from 'redux';
+import reducer from './redux/reducers';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
-    <Provider store = {store}>
-        <div>
-            <App />
-        </div>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root')
 );
-
 registerServiceWorker();
 

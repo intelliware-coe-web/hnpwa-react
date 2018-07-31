@@ -1,0 +1,15 @@
+.Details-field {
+	text-align: left;
+	line-height: 2em;
+	margin-left: 10%;
+	width: 80%;
+}
+
+.Details-title {
+	border-bottom: 2px solid #cccccc;
+	margin-bottom: 1.5em;
+	padding-bottom: 0.5em;
+	margin-top: 2em;
+	font-size: 1.5em;
+	font-weight: bold;
+}
