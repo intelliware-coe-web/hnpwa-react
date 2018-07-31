@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
+import Search from '../Search/Search'
 import './App.css';
-import UserProfileContainer from './UserProfileContainer';
+import UserProfileContainer from '../../UserProfileContainer';
 
 class App extends Component {
   render() {
@@ -15,8 +16,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div>
-          <UserProfileContainer/>
+          <UserProfileContainer />
         </div>
+        <Search />
       </div>
     );
   }
