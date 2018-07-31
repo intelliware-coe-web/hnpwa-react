@@ -3,11 +3,11 @@ import UserProfile from './UserProfile'
 import { makeCat } from './actions'
 
 const getUserProfile = (userProfile) => {
-    return userProfile.userProfile;
+    return userProfile;
 }
 
 const mapStateToProps = state => ({
-    userProfile: getUserProfile(state.userProfile)
+    userProfile: getUserProfile(state.userProfile.userProfile)
 })
 
 const mapDispatchToProps = dispatch => {

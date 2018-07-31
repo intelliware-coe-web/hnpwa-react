@@ -3,6 +3,7 @@ import logo from '../../logo.svg';
 import Search from '../Search/Search'
 import './App.css';
 import UserProfileContainer from '../../UserProfileContainer';
+import CurrentDetails from '../CurrentDetails';
 
 class App extends Component {
   render() {
@@ -19,6 +20,9 @@ class App extends Component {
           <UserProfileContainer />
         </div>
         <Search />
+
+        <CurrentDetails/>
+
       </div>
     );
   }
