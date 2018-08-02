@@ -11,11 +11,14 @@ class Details extends Component {
   }
 
   render() {
+
+    if(!this.props.news) { return <h3>No news selected</h3>; }
+
     return (
       <div className="Details">
         <div className="Details-field Details-title">{ this.props.news.title }</div>
         <div className="Details-field Details-author">{ `author: ${this.props.news.author}` }</div>
-        <div className="Details-field Details-date">{ `date created: ${this.props.news.createdDate}` }</div>
+        <div className="Details-field Details-date">{ `created: ${this.props.news.timeAgo}` }</div>
         <div className="Details-field Details-response">{ this.generateResponseCountMessage(this.props.news.responses) }</div>
       </div>
     );
