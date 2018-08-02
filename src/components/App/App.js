@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
 import Search from '../Search/Search'
+import NewsListTable from '../NewsListTable';
 import './App.css';
 import UserProfileContainer from '../../UserProfileContainer';
 import CurrentDetails from '../CurrentDetails';
@@ -9,19 +9,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>
+        
+        <div className="card">
+          <h2>Search</h2>
+          <Search />
+        </div>
+
+        <div className="card">
+          <h2>Details</h2>
+          <CurrentDetails/>
+        </div>
+
+        <div className="card">
+          <h2>News List</h2>
+          <NewsListTable/>
+        </div>
+
+        <div className="card">
+          <h2>UserProfile</h2>
           <UserProfileContainer />
         </div>
-        <Search />
-
-        <CurrentDetails/>
 
       </div>
     );
