@@ -1,6 +1,6 @@
 const initialState = {
-    searchParameters: "bananaMonkeyCarberator",
-    news: [
+    selectedItem: null,
+    list: [
       {
         url: 'www.example.com',
         author: 'tdurden',
@@ -20,16 +20,24 @@ const initialState = {
     ]
   };
 
-  export const selectNews = (news) => ({ type: 'NEWS_SELECTED', news });
+  // Action Types
+  export const NEWS_ITEM_SELECTED = 'NEWS_ITEM_SELECTED';
 
-  const rootReducer = (state = initialState, action) => {
+  // Action Creators
+  export const selectNewsItem = (newsItem) => ({ type: NEWS_ITEM_SELECTED, newsItem });
+
+  // Reducer
+  const newsReducer = (state = initialState, action) => {
+
     switch(action.type) {
-      case 'NEWS_SELECTED':
-        return Object.assign({}, state, { selectedNews: action.news});
+      
+      case NEWS_ITEM_SELECTED:
+        return Object.assign({}, state, { selectedItem: action.newsItem});
 
       default: return state;
+
     }
 
   };
 
-  export default rootReducer;
+  export default newsReducer;

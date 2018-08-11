@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { submitSearch } from '../../actions/index';
+import { submitSearch } from '../../actions/search.reducer';
 
 class ConnectedSearch extends Component {
 
@@ -21,8 +21,7 @@ class ConnectedSearch extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { searchTerms } = this.state.searchTerms;
-    this.props.submitSearch({ searchTerms })
+    this.props.submitSearch(this.state.searchTerms);
     this.setState({labelText: this.state.searchTerms});
   }
 

@@ -12,7 +12,7 @@ class UserProfile extends Component {
     let avatar = this.props.userProfile.avatar;
     let avatarDivContent;
     if (avatar) {
-      var imgSrc = require('./avatars/cat-avatars-' + avatar +  '.jpg');
+      var imgSrc = require('../../avatars/cat-avatars-' + avatar +  '.jpg');
       avatarDivContent = <img alt="Avatar" src={imgSrc} width="100px"></img>
     } else {
       avatarDivContent = <button onClick={this.props.makeCat}>Make Cat</button>

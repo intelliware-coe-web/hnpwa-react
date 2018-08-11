@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Details from './Details';
 
 const mapStateToProps = state => ({
-  news: state.news.selectedNews
+  newsItem: state.news.selectedItem
 });
 
 export default connect(

@@ -15,3 +15,10 @@ body {
 }
 
 .App .card h2 { text-align: left; margin-top: 0; border-bottom: 1px solid lightgray; }
+
+.App {
+  text-align: center;
+}
+
+
+.btn--link { background: none; border: 0; font-size: 1em; color: blue; text-decoration: underline; cursor: pointer; }
