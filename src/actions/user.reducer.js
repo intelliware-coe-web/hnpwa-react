@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
     //Mock initial state
     profile: {
         avatar:undefined,
