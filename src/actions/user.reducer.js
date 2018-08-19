@@ -1,5 +1,12 @@
+import {
+    USER_MAKE_CAT,
+    REQUEST_USER_PROFILE,
+    RECEIVE_USER_PROFILE
+  } from './user.action'
+
 export const initialState = {
     //Mock initial state
+    isFetching:false,
     profile: {
         avatar:undefined,
         username:'Jane Doe II',
@@ -9,19 +16,7 @@ export const initialState = {
     }
   }
 
-
-// Action Types
-export const USER_MAKE_CAT = 'USER_MAKE_CAT';
-
-// Action Creators
-export const makeCat = username => ({ type: USER_MAKE_CAT, username });
-
-const userReducer = (state = [], action)  => {
-    //Mock state until we start adding user profile data
-    if (typeof state === 'undefined' || state.length === 0) {
-        state = initialState;
-    }
-
+const userReducer = (state = {isFetching:false, profile:initialState.profile}, action)  => {
     if (action.type === USER_MAKE_CAT) {
         let avatarUpdated = Math.floor(Math.random()*6) + 1;
         console.log("make cat clicked", state.userProfile, action);
@@ -35,8 +30,18 @@ const userReducer = (state = [], action)  => {
                 numOfStories: state.profile.numOfStories
             }
         }
+    } else if (action.type === REQUEST_USER_PROFILE) {
+        return Object.assign({}, state, {
+            isFetching:true
+        });
+    } else if (action.type === RECEIVE_USER_PROFILE) {
+        return Object.assign({}, state, {
+            isFetching:false,
+            profile: action.userProfile,
+            lastUpdated:action.lastUpdated
+        });
+    } else {
+        return state
     }
-
-    return state
 }
 export default userReducer

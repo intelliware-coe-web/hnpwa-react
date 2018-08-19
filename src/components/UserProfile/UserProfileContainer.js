@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import UserProfile from './UserProfile'
-import { makeCat } from '../../actions/user.reducer';
+import { makeCat } from '../../actions/user.action';
 
 const mapStateToProps = state => ({
     userProfile: state.user.profile
