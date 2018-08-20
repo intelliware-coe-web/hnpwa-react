@@ -1,4 +1,4 @@
-//import fetch from 'cross-fetch'
+import { UserProfileAPI } from '../apis/news.api'
 
 // Action Types
 export const USER_MAKE_CAT = 'USER_MAKE_CAT';
@@ -39,13 +39,8 @@ export function fetchUserProfile(userName) {
     return function (dispatch) {
         dispatch(requestUserProfile(userName));
 
-        return fetch(`https://hacker-news.firebaseio.com/v0/user/${userName}.json`)
-            .then(
-                response => response.json(),
-                error => console.log('An error occurred.', error)
-            )
-            .then(json =>
-                dispatch(receiveUserProfile(userName, json))
-            )
+        return UserProfileAPI.byId(userName).then(
+            successResponse => dispatch(receiveUserProfile(userName, successResponse),
+            errorResponse => console.log('error:', errorResponse)));
     }
   }
