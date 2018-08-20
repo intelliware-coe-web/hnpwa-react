@@ -9,7 +9,12 @@ import Search from './components/Search/Search.component';
 import NewsListTable from './components/NewsList/NewsListTable';
 import CurrentDetails from './components/NewsDetails/CurrentDetails';
 import UserProfileContainer from './components/UserProfile/UserProfileContainer';
+import { UserProfileAPI } from './apis/news.api';
 
+// Network request example (no redux)
+UserProfileAPI.byId('mudil').then(
+  successResponse => console.log('success:', successResponse),
+  errorResponse => console.log('error:', errorResponse));
 
 ReactDOM.render(
   <Provider store={store}>
