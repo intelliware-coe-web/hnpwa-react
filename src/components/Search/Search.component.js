@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { submitSearch } from '../../actions/search.reducer';
+import { TopStoriesAPI } from '../../apis/topStories.api';
 
 class ConnectedSearch extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       labelText: 'Use the input field to search for news',
-      searchTerms: ''
+      searchTerms: '',
+      topStories: []
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.retrieveTopStories = this.retrieveTopStories.bind(this);
   }
 
   handleChange(event) {
@@ -25,6 +28,17 @@ class ConnectedSearch extends Component {
     this.setState({labelText: this.state.searchTerms});
   }
 
+  componentDidMount() {
+    this.retrieveTopStories();
+  }
+
+  retrieveTopStories()  {
+    TopStoriesAPI.topFive().then(topStories => {
+      const topFiveStories = topStories.slice(0, 5);
+      this.setState({topStories: topFiveStories});
+    });
+  }
+
   render() {
     return (
       <div className="Search">
@@ -33,6 +47,12 @@ class ConnectedSearch extends Component {
           <button type="submit" disabled={!this.state.searchTerms}>Search</button>
           <label>{this.state.labelText}</label>
         </form>
+        <div id="top-stories">
+          <h3>Top Stories</h3>
+          <ul>
+            {this.state.topStories.map(id =>  <li key={id}>{id}</li>)}
+          </ul>
+        </div>
       </div>
     );
   }
@@ -42,7 +62,7 @@ const mapStateToProps = (state) => {
   return {
       searchTerms: state.searchTerms
   }
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return { 
