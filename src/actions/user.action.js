@@ -16,7 +16,7 @@ export const receiveUserProfile = (userName, json) => (
     userName,
     userProfile: mapUserProfile(json),
     receivedAt: Date.now()
-}); 
+});
 
 function mapUserProfile(json) {
     if (!json) {
@@ -24,7 +24,7 @@ function mapUserProfile(json) {
             username : null,
             createdDate : null,
             description: null,
-            numOfStories: null    
+            numOfStories: null
         }
     }
     return {
@@ -40,7 +40,7 @@ export function fetchUserProfile(userName) {
         dispatch(requestUserProfile(userName));
 
         return UserProfileAPI.byId(userName).then(
-            successResponse => dispatch(receiveUserProfile(userName, successResponse),
-            errorResponse => console.log('error:', errorResponse)));
+            successResponse => dispatch(receiveUserProfile(userName, successResponse)),
+            errorResponse => errorResponse);
     }
   }
