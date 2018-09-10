@@ -15,7 +15,7 @@ class ConnectedSearch extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.retrieveTopStories = this.retrieveTopStories.bind(this);
+    this.retrieveTopFiveStories = this.retrieveTopFiveStories.bind(this);
   }
 
   handleChange(event) {
@@ -29,11 +29,11 @@ class ConnectedSearch extends Component {
   }
 
   componentDidMount() {
-    this.retrieveTopStories();
+    this.retrieveTopFiveStories();
   }
 
-  retrieveTopStories()  {
-    TopStoriesAPI.topFive().then(topStories => {
+  retrieveTopFiveStories()  {
+    TopStoriesAPI.topStories().then(topStories => {
       const topFiveStories = topStories.slice(0, 5);
       this.setState({topStories: topFiveStories});
     });

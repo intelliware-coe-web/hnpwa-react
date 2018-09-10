@@ -6,6 +6,6 @@ export const simpleFetch = (url) => fetch(url)
 
 export const TopStoriesAPI = {
 
-    topFive: () => simpleFetch(`https://hacker-news.firebaseio.com/v0/topstories.json`)
-    
+    topStories: () => simpleFetch(`https://hacker-news.firebaseio.com/v0/topstories.json`)
+
 };
