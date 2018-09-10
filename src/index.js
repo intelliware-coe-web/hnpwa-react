@@ -6,10 +6,12 @@ import store from './store';
 import './index.css';
 
 import Search from './components/Search/Search.component';
-import NewsListTable from './components/NewsList/NewsListTable';
+import FrontPage from './components/NewsList/FrontPage';
 import CurrentDetails from './components/NewsDetails/CurrentDetails';
 import UserProfileContainer from './components/UserProfile/UserProfileContainer';
+import Navigation from './components/Navigation/Navigation'
 import { UserProfileAPI } from './apis/news.api';
+import { BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 
 // Network request example (no redux)
 UserProfileAPI.byId('mudil').then(
@@ -18,8 +20,17 @@ UserProfileAPI.byId('mudil').then(
 
 ReactDOM.render(
   <Provider store={store}>
+    <BrowserRouter>
     <div className="App">
 
+        <div className="header">
+          <Navigation />
+        </div>
+
+        <div className="main">
+          <FrontPage />
+        </div>
+        
         <div className="card">
           <h2>Search</h2>
           <Search />
@@ -31,16 +42,13 @@ ReactDOM.render(
         </div>
 
         <div className="card">
-          <h2>News List</h2>
-          <NewsListTable />
-        </div>
-
-        <div className="card">
           <h2>UserProfile</h2>
           <UserProfileContainer />
         </div>
 
+
       </div>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
