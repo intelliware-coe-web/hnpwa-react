@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const ConnectedNewsListTable = ({ newsList, selectNewsItem }) => (
   <div>
+    <h2>News List</h2>
       <SearchParameter />
       {newsList.length ? "" : "no news found"}
       {newsList.map((newsItem, index) => (
