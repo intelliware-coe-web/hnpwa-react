@@ -4,7 +4,6 @@ import userReducer from './actions/user.reducer';
 import newsReducer from './actions/news.reducer';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { fetchUserProfile } from './actions/user.action';
 
 const loggerMiddleware = createLogger();
 
@@ -22,8 +21,6 @@ const store = createStore(
     ),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
-// store.dispatch(fetchUserProfile('jl'))
 
 window.store = store;
 
