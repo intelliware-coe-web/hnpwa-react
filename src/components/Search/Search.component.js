@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { submitSearch } from '../../actions/search.reducer';
 import { TopStoriesAPI } from '../../apis/topStories.api';
 
+import { cardContent }  from './Search.component.css';
+
 class ConnectedSearch extends Component {
 
   constructor(props) {
@@ -41,7 +43,8 @@ class ConnectedSearch extends Component {
 
   render() {
     return (
-      <div className="Search">
+      <div className={`Search ${cardContent}`}>
+        <h2>Search</h2>
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.searchTerms} onChange={this.handleChange} />
           <button type="submit" disabled={!this.state.searchTerms}>Search</button>

@@ -14,6 +14,7 @@ import Navigation from './components/Navigation/Navigation'
 import { UserProfileAPI } from './apis/news.api';
 import { BrowserRouter } from 'react-router-dom'
 
+
 // Network request example (no redux)
 UserProfileAPI.byId('mudil').then(
   successResponse => console.log('success:', successResponse),
@@ -33,7 +34,6 @@ ReactDOM.render(
         </div>
         
         <div className="card">
-          <h2>Search</h2>
           <Search />
         </div>
 
@@ -43,7 +43,6 @@ ReactDOM.render(
         </div>
 
         <div className="card">
-          <h2>UserProfile</h2>
           <UserProfileContainer />
         </div>
 

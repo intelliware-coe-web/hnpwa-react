@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { cardContent }  from './UserProfile.component.css';
 
 class UserProfile extends Component {
   render() {
@@ -27,7 +28,8 @@ class UserProfile extends Component {
                     ("0" + createdDate.getUTCSeconds()).slice(-2);
 
     return (
-      <div className="UserProfile">
+      <div className={`UserProfile ${cardContent}`}>
+        <h2>UserProfile</h2>      
         <div className="avatar">
           {avatarDivContent}
         </div>
