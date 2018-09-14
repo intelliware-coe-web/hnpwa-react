@@ -29,7 +29,6 @@ describe('The search component', () => {
       </Provider>
       , div);
 
-    ReactDOM.unmountComponentAtNode(div);
   });
 
   it('should correctly render an unordered list of the top 5 stories IDs once this data is retrieved', async () => {
