@@ -32,3 +32,7 @@ body {
 
 
 .btn--link { background: none; border: 0; font-size: 1em; color: blue; text-decoration: underline; cursor: pointer; }
+
+#top-stories > ul {
+  list-style: none;
+}
