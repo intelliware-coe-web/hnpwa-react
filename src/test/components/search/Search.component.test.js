@@ -32,16 +32,20 @@ describe('The search component', () => {
   });
 
   it('should correctly render an unordered list of the top 5 stories IDs once this data is retrieved', async () => {
-    const wrapper = await mount(<Provider store = {store}><Search/></Provider>);
-    await wrapper.instance();
-    wrapper.update();
+      let wrapper = mount(<Provider store = {store}><Search/></Provider>);
+    
+      setImmediate(() => {
 
-    expect(wrapper.find('li').length).toBe(5);
-    expect(wrapper.find('li').at(0).text()).toBe('71');
-    expect(wrapper.find('li').at(1).text()).toBe('23');
-    expect(wrapper.find('li').at(2).text()).toBe('33');
-    expect(wrapper.find('li').at(3).text()).toBe('11');
-    expect(wrapper.find('li').at(4).text()).toBe('2097');
+        wrapper.update();
+        
+        expect(wrapper.find('li').length).toBe(5);
+        expect(wrapper.find('li').at(0).text()).toBe('71');
+        expect(wrapper.find('li').at(1).text()).toBe('23');
+        expect(wrapper.find('li').at(2).text()).toBe('33');
+        expect(wrapper.find('li').at(3).text()).toBe('11');
+        expect(wrapper.find('li').at(4).text()).toBe('2097');
+
+      });
   });
 });
 
