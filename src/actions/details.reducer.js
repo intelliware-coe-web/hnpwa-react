@@ -40,6 +40,7 @@ const requestDetailsReducer = (state = initialState, action) => {
 
 export function fetchDetails(newsItem) {
 	return function(dispatch) {
+		console.log("reached here!");
 		dispatch(requestDetails(newsItem));
 		return fetch(`https://hacker-news.firebaseio.com/v0/item/${newsItem.id}.json`)
 					.then(
