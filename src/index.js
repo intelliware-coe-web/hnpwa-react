@@ -7,6 +7,7 @@ import './index.css';
 
 import Search from './components/Search/Search.component';
 import FrontPage from './components/NewsList/FrontPage';
+import UserProfilePage from './components/UserProfile/UserProfilePage';
 import CurrentDetails from './components/NewsDetails/CurrentDetails';
 import UserProfileContainer from './components/UserProfile/UserProfileContainer';
 
@@ -31,6 +32,7 @@ ReactDOM.render(
 
         <div className="main">
           <FrontPage />
+          <UserProfilePage />
         </div>
         
         <div className="card">
