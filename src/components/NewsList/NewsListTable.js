@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NewsListItem from './NewsListItem';
 import SearchParameter from '../Search/SearchParameter';
-import { selectNewsItem } from '../../actions/news.reducer';
+import { fetchDetails } from '../../actions/details.reducer';
 
 const mapStateToProps = state => {
-  return { 
+  return {
     newsList: state.news.list
   }
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  selectNewsItem: (newsItem) => dispatch(selectNewsItem(newsItem))
+  selectNewsItem: (newsItem) => dispatch(fetchDetails(newsItem))
 });
 
 const ConnectedNewsListTable = ({ newsList, selectNewsItem }) => (

@@ -1,7 +1,7 @@
 const initialState = {
-    selectedItem: null,
     list: [
       {
+        id: 1,
         url: 'www.example.com',
         author: 'tdurden',
         title: 'Tesla Asks Suppliers for Cash Back to Help Turn a Profit',
@@ -10,6 +10,7 @@ const initialState = {
         numberOfComments: '22'
       },
       {
+        id: 2,
         url: 'www.example.com',
         author: 'jhabdas',
         title: 'BPG Image format ',
@@ -30,7 +31,7 @@ const initialState = {
   const newsReducer = (state = initialState, action) => {
 
     switch(action.type) {
-      
+
       case NEWS_ITEM_SELECTED:
         return Object.assign({}, state, { selectedItem: action.newsItem});
 
