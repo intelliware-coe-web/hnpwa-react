@@ -3,23 +3,29 @@ import './Details.css';
 
 class Details extends Component {
 
-  generateResponseCountMessage(responses) {
-    if (!responses || !responses.length) {
+  generateResponseCountMessage(responseCount) {
+    if (!responseCount) {
       return 'no responses yet';
     }
-    return `${responses.length} response${responses.length > 1 ? 's' : ''} submitted so far`;
+    return `${responseCount} response${responseCount > 1 ? 's' : ''} submitted so far`;
   }
 
   render() {
 
-    if(!this.props.newsItem) { return <h3>No news selected</h3>; }
+    if (this.props.details.isFetching) {
+      return <h3>loading...</h3>;
+    }
+
+    if (!this.props.details.details) {
+      return <h3>No news selected</h3>;
+    }
 
     return (
       <div className="Details">
-        <div className="Details-field Details-title">{ this.props.newsItem.title }</div>
-        <div className="Details-field Details-author">{ `author: ${this.props.newsItem.author}` }</div>
-        <div className="Details-field Details-date">{ `created: ${this.props.newsItem.timeAgo}` }</div>
-        <div className="Details-field Details-response">{ this.generateResponseCountMessage(this.props.newsItem.responses) }</div>
+        <div className="Details-field Details-title">{ this.props.details.details.title }</div>
+        <div className="Details-field Details-author">{ `author: ${this.props.details.details.by}` }</div>
+        <div className="Details-field Details-date">{ `created: ${new Date(this.props.details.details.time)}` }</div>
+        <div className="Details-field Details-response">{ this.generateResponseCountMessage(this.props.details.details.descendants) }</div>
       </div>
     );
   }
